@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_university_campus_tree" model="ir.ui.view">
+        <field name="name">Listado de sedes</field>
+        <field name="model">university.campus</field>
+        <field name="arch" type="xml">
+            <list string="Sedes" create="false">
+                <field name="name"/>
+                <field name="location"/>
+            </list>
+        </field>
+    </record>
+</odoo>
