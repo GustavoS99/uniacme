@@ -11,6 +11,9 @@ class UniversityCampus(models.Model):
         ('-04:00', 'Venezuela'),
         ('-03:00', 'Argentina')
     ], string="Zona horaria", required=True)
+
+    student_ids = fields.One2many('res.partner', 'campus_id', string="Estudiantes")
+
     _sql_constraints = [
-        ('uniq_name', 'unique(name)', "A name already exists with this name . Name's name must be unique!"),
+        ('uniq_name', 'unique(name)', "Ya existe una sede con ese nombre"),
     ]

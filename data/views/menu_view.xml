@@ -10,10 +10,17 @@
             <field name="res_model">university.campus</field>
             <field name="view_mode">form</field>
         </record>
+        <record id="action_open_student_form_view" model="ir.actions.act_window">
+            <field name="name">Estudiante</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">form</field>
+        </record>
 
         <menuitem name="Gestión de votaciones" id="uniacme.menu_root" groups="base.group_user" web_icon="uniacme,static/description/icon.png"/>
-        <menuitem name="Sedes" id="uniacme.dashboard_menu" parent="uniacme.menu_root" />
+        <menuitem name="Sedes" id="uniacme.dashboard_menu" parent="uniacme.menu_root" sequence="1"/>
         <menuitem name="Crear" id="uniacme.dashboard_submenu_add" parent="uniacme.dashboard_menu" action="uniacme.action_open_university_campus_form_view" sequence="1"/>
         <menuitem name="Listar" id="uniacme.dashboard_submenu_list" parent="uniacme.dashboard_menu" action="uniacme.action_open_university_campus_list_view" sequence="2"/>
+        <menuitem name="Estudiantes" id="uniacme.students_menu" parent="uniacme.menu_root" sequence="2" />
+        <menuitem name="Crear" id="uniacme.students_submenu_add" parent="uniacme.students_menu" action="uniacme.action_open_student_form_view" sequence="1"/>
     </data>
 </odoo>
