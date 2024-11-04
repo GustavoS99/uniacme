@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="student_category" model="res.partner.category">
+        <field name="name">Estudiante</field>
+    </record>
+    <record id="view_student_form" model="ir.ui.view">
+        <field name="name">student.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="is_student"/>
+                <field name="identification">
+                    <attribute name="required">True</attribute>
+                </field>
+                <field name="program"/>
+                <field name="campus_id" ref="uniacme.view_university_campus_form">
+                    <attribute name="required">True</attribute>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -17,7 +17,8 @@
         'data/security/ir.model.access.csv',
         'data/views/menu_view.xml',
         'data/views/university_campus_form_view.xml',
-        'data/views/university_campus_list_view.xml'
+        'data/views/university_campus_list_view.xml',
+        'data/views/student_view.xml'
     ],
 
     'assets': {
