@@ -3,13 +3,27 @@
     <record id="student_category" model="res.partner.category">
         <field name="name">Estudiante</field>
     </record>
-    <record id="view_student_form" model="ir.ui.view">
-        <field name="name">student.form</field>
+
+    <record id="candidate_category" model="res.partner.category">
+        <field name="name">Candidato</field>
+    </record>
+
+    <record id="inherit_view_res_partner_form" model="ir.ui.view">
+        <field name="name">inherit.res.partner.form</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//form" position="attributes">
+                <attribute name="create">false</attribute>
+            </xpath>
+            <xpath expr="//form/sheet" position="before">
+                <header>
+                    <button string="Guardar" type="object" name="action_create_candidate" class="btn btn-outline-primary"/>
+                </header>
+            </xpath>
             <xpath expr="//field[@name='vat']" position="after">
                 <field name="is_student"/>
+                <field name="is_candidate"/>
                 <field name="identification">
                     <attribute name="required">True</attribute>
                 </field>
