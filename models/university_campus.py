@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class UniversityCampus(models.Model):
     _name = 'university.campus'
@@ -12,7 +12,8 @@ class UniversityCampus(models.Model):
         ('-03:00', 'Argentina')
     ], string="Zona horaria", required=True)
 
-    student_ids = fields.One2many('res.partner', 'campus_id', string="Estudiantes")
+    student_ids = fields.One2many('res.partner', 'campus_id', string="Estudiantes", domain=[('is_student', '=', True)])
+    candidate_ids = fields.One2many("res.partner", "campus_id", "Candidatos", domain=[('is_candidate', '=', True)])
 
     _sql_constraints = [
         ('uniq_name', 'unique(name)', "Ya existe una sede con ese nombre"),

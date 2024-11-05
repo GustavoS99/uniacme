@@ -18,6 +18,15 @@
                                 <list>
                                     <field name="name"/>
                                     <field name="identification"/>
+                                    <field name="program"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Candidatos">
+                            <field name="candidate_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="identification"/>
                                 </list>
                             </field>
                         </page>
