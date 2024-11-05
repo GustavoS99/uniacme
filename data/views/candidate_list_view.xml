@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_candidate_tree" model="ir.ui.view">
+            <field name="name">Listado de candidatos</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//list" position="attributes">
+                    <attribute name="create">false</attribute>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <header>
+                        <button name="uniacme.action_open_candidate_form_view" type="action" string="Crear" display="always" class="btn-primary"/>
+                    </header>
+                    <field name="identification"/>
+                    <field name="campus_id"/>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="optional">hide</attribute>
+                </xpath>
+                <xpath expr="//field[@name='category_id']" position="attributes">
+                    <attribute name="optional">show</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

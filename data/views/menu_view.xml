@@ -16,11 +16,27 @@
             <field name="view_mode">form</field>
         </record>
 
+        <record id="action_open_candidate_form_view" model="ir.actions.act_window">
+            <field name="name">Candidato</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <record id="action_open_candidate_list_view" model="ir.actions.act_window">
+            <field name="name">Listado de Candidatos</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('is_candidate', '=', True)]</field>
+        </record>
+
         <menuitem name="Gestión de votaciones" id="uniacme.menu_root" groups="base.group_user" web_icon="uniacme,static/description/icon.png"/>
         <menuitem name="Sedes" id="uniacme.dashboard_menu" parent="uniacme.menu_root" sequence="1"/>
         <menuitem name="Crear" id="uniacme.dashboard_submenu_add" parent="uniacme.dashboard_menu" action="uniacme.action_open_university_campus_form_view" sequence="1"/>
         <menuitem name="Listar" id="uniacme.dashboard_submenu_list" parent="uniacme.dashboard_menu" action="uniacme.action_open_university_campus_list_view" sequence="2"/>
         <menuitem name="Estudiantes" id="uniacme.students_menu" parent="uniacme.menu_root" sequence="2" />
         <menuitem name="Crear" id="uniacme.students_submenu_add" parent="uniacme.students_menu" action="uniacme.action_open_student_form_view" sequence="1"/>
+        <menuitem name="Candidatos" id="uniacme.candidates_menu" parent="uniacme.menu_root" sequence="3" />
+        <menuitem name="Crear" id="uniacme.candidates_submenu_add" parent="uniacme.candidates_menu" action="uniacme.action_open_candidate_form_view" sequence="1"/>
+        <menuitem name="Listar" id="uniacme.candidates_submenu_list" parent="uniacme.candidates_menu" action="uniacme.action_open_candidate_list_view" sequence="2"/>
     </data>
 </odoo>
